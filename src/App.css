@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for mobile optimization */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-black text-white;
+}
+
+/* Mobile-first approach */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+  
+  h1 {
+    @apply text-4xl;
+  }
+  
+  h2 {
+    @apply text-3xl;
+  }
+  
+  /* Improve tap targets for mobile */
+  button, a {
+    min-height: 40px;
+    min-width: 40px;
+  }
+  
+  /* Adjust spacing for mobile */
+  section {
+    @apply py-12;
+  }
+  
+  /* Ensure images don't overflow on small screens */
+  img {
+    max-width: 100%;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1e40af;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2563eb;
+}
