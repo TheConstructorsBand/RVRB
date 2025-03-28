@@ -364,7 +364,7 @@ function App() {
                 className="gallery-item overflow-hidden rounded-lg transition-all duration-700 transform opacity-0 translate-y-12 h-64 relative group"
               >
                 <img 
-                  src={`/img/event/optimized/event${num}.webp`} 
+                  src={`/event/optimized/event${num}.webp`} 
                   alt={`Event photo ${num}`} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
