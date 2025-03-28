@@ -75,7 +75,7 @@ function App() {
               
               setTimeout(() => {
                 imageContainer.classList.add('translate-x-0');
-              }, 100);
+              }, 200);
               
               observer.unobserve(entry.target);
             }
@@ -246,21 +246,13 @@ function App() {
                 className="speaker-container"
               >
                 <div className={`flex flex-col ${speaker.id % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-start`}>
-                  {/* Speaker Image - Smaller size */}
+                  {/* Speaker Image - Even smaller size */}
                   <div 
-                    className={`speaker-image-container w-full md:w-1/3 overflow-hidden rounded-lg transition-all duration-700 transform opacity-0 ${
+                    className={`speaker-image-container w-full md:w-1/5 overflow-hidden rounded-lg transition-all duration-700 transform opacity-0 ${
                       speaker.id % 2 === 0 ? 'translate-x-20' : '-translate-x-20'
                     }`}
                   >
                     <div className="relative">
-                      {/* Vertical category tag */}
-                      <div className="absolute top-0 right-0 h-full flex flex-col items-center justify-center z-10">
-                        <div className="bg-purple-500/20 px-2 py-6 writing-mode-vertical">
-                          <span className="transform rotate-90 inline-block text-xs font-semibold tracking-wider">
-                            {speaker.category}
-                          </span>
-                        </div>
-                      </div>
                       <img 
                         src={speaker.image} 
                         alt={speaker.name} 
@@ -270,16 +262,25 @@ function App() {
                   </div>
                   
                   {/* Speaker Info - Larger fonts */}
-                  <div className="w-full md:w-2/3 space-y-6">
-                    {/* Vertical speaker number */}
-                    <div className="flex items-start">
-                      <div className="text-4xl font-bold text-purple-300 mr-4 opacity-70">
-                        {speaker.id < 10 ? `0${speaker.id}` : speaker.id}
+                  <div className="w-full md:w-4/5 space-y-6 relative">
+                    {/* Vertical category and number - positioned on the side */}
+                    <div className={`absolute ${speaker.id % 2 === 0 ? 'right-0 mr-[-4rem]' : 'left-0 ml-[-4rem]'} top-0 h-full flex flex-col items-center`}>
+                      <div className="h-full flex flex-col items-center justify-start space-y-4">
+                        <div className="text-4xl font-bold text-purple-300 writing-mode-vertical">
+                          {speaker.id < 10 ? `0${speaker.id}` : speaker.id}
+                        </div>
+                        <div className="w-px h-16 bg-purple-500/50"></div>
+                        <div className="bg-purple-500/20 px-2 py-4">
+                          <span className="writing-mode-vertical text-xs font-semibold tracking-wider text-purple-300">
+                            {speaker.category}
+                          </span>
+                        </div>
                       </div>
-                      <div className="space-y-2">
-                        <h3 className="text-4xl md:text-5xl font-bold">{speaker.name}</h3>
-                        <p className="text-xl md:text-2xl text-gray-400">{speaker.topic}</p>
-                      </div>
+                    </div>
+                    
+                    <div className="pl-6 space-y-2">
+                      <h3 className="text-4xl md:text-5xl font-bold">{speaker.name}</h3>
+                      <p className="text-xl md:text-2xl text-gray-400">{speaker.topic}</p>
                     </div>
                     
                     <p className="text-lg leading-relaxed text-gray-300">{speaker.bio}</p>
