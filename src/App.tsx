@@ -358,20 +358,44 @@ function App() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Gallery images with animation */}
-            {[1, 2, 3, 4, 5, 6].map((num) => (
+            {[
+              '056FCACC-B708-402A-8DBA-3E6BD3DEF878_1_105_c',
+              '10B8A5DC-6A25-4F98-9BFD-89E514CCD2FF_1_105_c',
+              '11DA1C40-5DC4-433C-9D92-A61CB1FB9C65_1_105_c',
+              '1C19FCB5-9F61-4029-9783-108D7931A40F',
+              '2A555F3B-2042-41FA-B13B-A16EF15DFABB_1_105_c',
+              '2AA7F12C-1E30-46B7-90AB-12D2C0B1B8FF_1_105_c',
+              '2F0E65EF-6599-46E7-AA5B-ED9D1F8B09E4_1_105_c',
+              '339C6AB8-5E20-4A6D-A7A1-0A1121DE8E0A_1_105_c',
+              '48B09E49-A094-44C3-BD58-8C7297E21F33_1_105_c',
+              '4A32DECE-AB12-4FB7-A500-180EE66ECEDE_1_105_c',
+              '5A2F34A6-3DD9-4993-8B19-D79471836EE7_1_105_c',
+              '5AB5D368-ECF3-4FE0-A7B1-7CBC37EC55CA_1_105_c',
+              '6BD8C3B9-552F-4ADA-B122-2971DB3F32E4_1_105_c',
+              '6F7FECFE-EE1D-4F44-B38E-B00CEA2ACEA0_1_105_c',
+              'A91ED84C-4375-4EB1-AB17-4F775774E06D_1_105_c',
+              'A9CD52A0-0EF1-4B43-92EB-56EA500A8D5B_1_105_c',
+              'BC4A6558-D7B5-4E4C-8DD6-D53C7551DDBE_1_105_c',
+              'BE61D06F-123D-4DAE-8233-7400194454A3_1_105_c',
+              'DE5B4A10-79D2-4308-8B54-36CCCAB79C64_1_105_c',
+              'E2FE24D2-93BF-4389-BA3A-B826A961A1A1_1_105_c',
+              'E3DCDA52-F27C-4401-83F8-B52CE8D4E0C8_1_105_c',
+              'ECDB5B86-267C-48D0-AADE-1A14AD055600_1_105_c',
+              'F9195140-0BFC-40FB-B70C-DE8B5430C19C_1_105_c'
+            ].map((filename, index) => (
               <div 
-                key={`event-${num}`} 
+                key={`event-${index}`} 
                 className="gallery-item overflow-hidden rounded-lg transition-all duration-700 transform opacity-0 translate-y-12 h-64 relative group"
               >
                 <img 
-                  src={`/event/optimized/event${num}.webp`} 
-                  alt={`Event photo ${num}`} 
+                  src={`/event/optimized/${filename}.webp`} 
+                  alt={`Event photo ${index + 1}`} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4">
-                    <h3 className="text-xl font-bold">RVRB {2023 - num + 1}</h3>
+                    <h3 className="text-xl font-bold">RVRB Event</h3>
                     <p className="text-sm text-gray-300">Innovation Gathering</p>
                   </div>
                 </div>
