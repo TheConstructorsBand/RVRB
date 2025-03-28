@@ -9,7 +9,7 @@ const speakers = [
     topic: "Open Source AI",
     category: "AI",
     bio: "As an AI professor in the Paul G. Allen School of Computer Science & Engineering at University of Washington, Farhadi's research impact has been globally recognized with several best paper awards at CVPR, NeruIPS, AAAI, NSF Career Award, and the Sloan Fellowship. In 2015, Farhadi joined AI2 to start the Computer Vision team, with a focus on visual common-sense reasoning and the role of actions and interactions in visual understanding.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    image: "/img/Farhadi.jpeg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const speakers = [
     topic: "The Architecture of AI",
     category: "AI",
     bio: "Antonio leads strategic initiatives for Google Cloud's Office of the CTO in Zurich, focusing on his areas of strength – AI, Cloud, and Search. Previously, he played a pivotal role in establishing Google's EMEA Office of the CTO and spearheaded the rapid growth of the company's Warsaw site.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+    image: "/img/Gulli.jpeg"
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const speakers = [
     topic: "AI and Proof",
     category: "AI",
     bio: "Simone Severini likes to think that he has the soul of a writer, but it's trapped in the mind of a scientist. He grew up in Sarteano (Siena) and, through a random walk, somehow ended up as a Professor of Physics of Information at University College London, and later as General Manager for Quantum Technologies at Amazon Web Services in Seattle.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    image: "/img/Severini.jpeg"
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const speakers = [
     topic: "Longevity",
     category: "Life Sciences",
     bio: "Paul Grewal, M.D., is an internal medicine physician, author, and speaker who focuses on data-driven nutrition and lifestyle strategies for metabolic health and longevity. Dr. Paul Grewal is co-author of the New York Times best-selling book Genius Foods, an evidence-based guide to dementia prevention and cognitive optimization.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    image: "/img/PG.webp"
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const speakers = [
     topic: "Computational Genomics",
     category: "Life Sciences",
     bio: "Riccardo Sabatini is a world renowned scientist and entrepreneur specialising in numerical modelling of complex systems, ranging from material science, to financial markets, computational genomics, and drug design.",
-    image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    image: "/img/RS.jpeg"
   },
   {
     id: 6,
@@ -49,7 +49,7 @@ const speakers = [
     topic: "Cancer Research",
     category: "Life Sciences",
     bio: "Jeff Leek is an American biostatistician and data scientist working as a Vice President, Chief Data Officer, and Professor at Fred Hutchinson Cancer Research Center. He is an author of the Simply Statistics blog, and runs several online courses through Coursera, as part of their Data Science Specialization.",
-    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80"
+    image: "/img/jeff-leek.jpg"
   },
   {
     id: 7,
@@ -57,7 +57,7 @@ const speakers = [
     topic: "Philosophy of Food",
     category: "Lifestyle",
     bio: "Andrea is Associate Professor in the Philosophy Department at the University of Milan, Italy, and a visiting faculty at the Center for Human Values, Princeton University. His research develops theoretical tools to rethink how we represent, sense, and feel about food, eating, and culinary cultures.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    image: "/img/Borghini_Shot.webp"
   }
 ];
 
@@ -69,7 +69,9 @@ function App() {
       {/* Navigation */}
       <header className="fixed w-full z-50 bg-black/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <a href="#" className="text-4xl font-bold text-blue-500">RVRB</a>
+          <a href="#" className="flex items-center">
+            <img src="/img/RVRB-LOGO PAGE_Dark.png" alt="RVRB Logo" className="h-10" />
+          </a>
           <nav className="hidden md:flex space-x-8">
             <a href="#home" className="hover:text-blue-400 transition-colors">Home</a>
             <a href="#speakers" className="hover:text-blue-400 transition-colors">Speakers</a>
@@ -242,8 +244,12 @@ function App() {
       <section id="venue" className="py-20 bg-gradient-to-b from-black to-blue-950">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="h-96 rounded-lg overflow-hidden bg-blue-900/30">
-              <div className="w-full h-full bg-gradient-to-br from-blue-800/50 to-purple-900/50"></div>
+            <div className="h-96 rounded-lg overflow-hidden">
+              <img 
+                src="/img/Venue.jpg" 
+                alt="Venue" 
+                className="w-full h-full object-cover"
+              />
             </div>
             <div>
               <h2 className="text-4xl font-bold mb-6">The Venue</h2>
