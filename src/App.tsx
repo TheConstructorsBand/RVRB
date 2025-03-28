@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Facebook, Instagram, Twitter, Linkedin, Menu, X } from 'lucide-react'
 import './App.css'
 
@@ -63,6 +63,26 @@ const speakers = [
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('group-hover:translate-y-0', 'group-hover:opacity-100', 'group-hover:translate-x-0');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.group');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -210,32 +230,49 @@ function App() {
           <h2 className="text-4xl font-bold mb-4 text-center">The Speakers</h2>
           <p className="text-center mb-12">07 FEATURED INDUSTRY EXPERTS</p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="space-y-24">
             {speakers.map((speaker) => (
-              <div key={speaker.id} className="bg-blue-900/20 backdrop-blur-sm rounded-lg p-6 border border-blue-500/20 relative overflow-hidden">
-                <div className="text-sm font-bold mb-2 z-10 relative">0{speaker.id}</div>
-                <div className="absolute top-0 right-0 px-3 py-1 bg-blue-500/20 text-xs font-semibold">
-                  {speaker.category}
-                </div>
-                <div className="h-64 mb-4 rounded-md overflow-hidden">
-                  <img 
-                    src={speaker.image} 
-                    alt={speaker.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{speaker.name}</h3>
-                <p className="text-blue-400 mb-4">{speaker.topic}</p>
-                <p className="text-sm text-gray-300 line-clamp-3">{speaker.bio}</p>
-                <div className="mt-4 pt-4 border-t border-blue-500/20 flex justify-between items-center">
-                  <span className="text-xs uppercase tracking-wider">FOLLOW</span>
-                  <div className="flex space-x-2">
-                    <a href="#" className="text-white hover:text-blue-400 transition-colors">
-                      <Twitter size={16} />
-                    </a>
-                    <a href="#" className="text-white hover:text-blue-400 transition-colors">
-                      <Linkedin size={16} />
-                    </a>
+              <div 
+                key={speaker.id} 
+                className="group"
+              >
+                <div className={`flex flex-col ${speaker.id % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center`}>
+                  {/* Speaker Image */}
+                  <div 
+                    className={`w-full md:w-2/5 overflow-hidden rounded-lg transition-all duration-700 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 ${
+                      speaker.id % 2 === 0 ? 'md:translate-x-10 md:group-hover:translate-x-0' : 'md:-translate-x-10 md:group-hover:translate-x-0'
+                    }`}
+                  >
+                    <div className="relative">
+                      <div className="absolute top-0 right-0 px-3 py-1 bg-blue-500/20 text-xs font-semibold z-10">
+                        {speaker.category}
+                      </div>
+                      <img 
+                        src={speaker.image} 
+                        alt={speaker.name} 
+                        className="w-full aspect-[3/4] object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Speaker Info */}
+                  <div className="w-full md:w-3/5 space-y-4">
+                    <div className="text-sm font-bold text-blue-400">0{speaker.id}</div>
+                    <h3 className="text-2xl font-bold">{speaker.name}</h3>
+                    <p className="text-blue-400 text-xl">{speaker.topic}</p>
+                    <p className="text-gray-300">{speaker.bio}</p>
+                    
+                    <div className="pt-6 border-t border-blue-500/20 flex justify-between items-center">
+                      <span className="text-xs uppercase tracking-wider">FOLLOW</span>
+                      <div className="flex space-x-3">
+                        <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                          <Twitter size={18} />
+                        </a>
+                        <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                          <Linkedin size={18} />
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
