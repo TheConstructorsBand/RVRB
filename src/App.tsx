@@ -247,9 +247,9 @@ function App() {
                 className="speaker-container"
               >
                 <div className={`flex flex-col ${speaker.id % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-start`}>
-                  {/* Speaker Image - Even smaller size */}
+                  {/* Speaker Image - Increased size by 20% */}
                   <div 
-                    className={`speaker-image-container w-full md:w-1/5 overflow-hidden rounded-lg transition-all duration-700 transform opacity-0 ${
+                    className={`speaker-image-container w-full md:w-1/4 overflow-hidden rounded-lg transition-all duration-700 transform opacity-0 ${
                       speaker.id % 2 === 0 ? 'translate-x-20' : '-translate-x-20'
                     }`}
                   >
@@ -262,29 +262,29 @@ function App() {
                     </div>
                   </div>
                   
-                  {/* Speaker Info - Larger fonts */}
-                  <div className="w-full md:w-4/5 space-y-6 relative">
-                    {/* Moved vertical category and number to the outer margin */}
-                    <div className={`absolute ${speaker.id % 2 === 0 ? 'right-0 mr-[-6rem]' : 'left-0 ml-[-6rem]'} top-0 h-full flex flex-col items-center`}>
+                  {/* Speaker Info - Increased font sizes */}
+                  <div className="w-full md:w-3/4 space-y-6 relative">
+                    {/* Vertical category and number positioned in outer margin */}
+                    <div className={`absolute ${speaker.id % 2 === 0 ? 'right-0 mr-[-8rem]' : 'left-0 ml-[-8rem]'} top-0 h-full flex flex-col items-center`}>
                       <div className="h-full flex flex-col items-center justify-start space-y-4">
-                        <div className="text-4xl font-bold text-purple-300 writing-mode-vertical">
+                        <div className="text-5xl font-bold text-purple-300 writing-mode-vertical">
                           {speaker.id < 10 ? `0${speaker.id}` : speaker.id}
                         </div>
-                        <div className="w-px h-16 bg-purple-500/50"></div>
-                        <div className="bg-purple-500/20 px-2 py-4">
-                          <span className="writing-mode-vertical text-xs font-semibold tracking-wider text-purple-300">
+                        <div className="w-px h-20 bg-purple-500/50"></div>
+                        <div className="bg-purple-500/20 px-3 py-5">
+                          <span className="writing-mode-vertical text-sm font-semibold tracking-wider text-purple-300">
                             {speaker.category}
                           </span>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="pl-6 space-y-2">
-                      <h3 className="text-4xl md:text-5xl font-bold">{speaker.name}</h3>
-                      <p className="text-xl md:text-2xl text-gray-400">{speaker.topic}</p>
+                    <div className="pl-8 space-y-3">
+                      <h3 className="text-5xl md:text-6xl font-bold">{speaker.name}</h3>
+                      <p className="text-2xl md:text-3xl text-gray-400">{speaker.topic}</p>
                     </div>
                     
-                    <p className="text-lg leading-relaxed text-gray-300">{speaker.bio}</p>
+                    <p className="text-xl leading-relaxed text-gray-300">{speaker.bio}</p>
                     
                     <div className="pt-6 border-t border-purple-500/20 flex justify-between items-center">
                       <span className="text-xs uppercase tracking-wider">FOLLOW</span>
