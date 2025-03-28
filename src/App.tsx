@@ -280,7 +280,7 @@ function App() {
                     </div>
                     
                     <div className="pl-8 space-y-3">
-                      <h3 className="text-5xl md:text-6xl font-bold">{speaker.name}</h3>
+                      <h3 className="text-4xl md:text-5xl font-bold">{speaker.name}</h3>
                       <p className="text-2xl md:text-3xl text-gray-400">{speaker.topic}</p>
                     </div>
                     
