@@ -264,8 +264,8 @@ function App() {
                   
                   {/* Speaker Info - Increased font sizes */}
                   <div className="w-full md:w-3/4 space-y-6 relative">
-                    {/* Vertical category and number positioned in outer margin */}
-                    <div className={`absolute ${speaker.id % 2 === 0 ? 'right-0 mr-[-8rem]' : 'left-0 ml-[-8rem]'} top-0 h-full flex flex-col items-center`}>
+                    {/* Vertical category and number positioned correctly */}
+                    <div className={`absolute ${speaker.id % 2 === 0 ? 'right-0 mr-[-8rem]' : 'right-full mr-4'} top-0 h-full flex flex-col items-center`}>
                       <div className="h-full flex flex-col items-center justify-start space-y-4">
                         <div className="text-5xl font-bold text-purple-300 writing-mode-vertical">
                           {speaker.id < 10 ? `0${speaker.id}` : speaker.id}
