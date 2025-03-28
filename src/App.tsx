@@ -177,7 +177,7 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center">
+      <section id="home" className="relative h-[80vh] flex items-center justify-center">
         <div className="absolute inset-0 z-0 flex items-center justify-center bg-black">
           <img 
             src="/img/RVRB-LOGO-hero.webp" 
@@ -299,7 +299,7 @@ function App() {
                       <p className="text-2xl md:text-3xl text-gray-400">{speaker.topic}</p>
                     </div>
                     
-                    <p className="text-xl leading-relaxed text-gray-300">{speaker.bio}</p>
+                    <p className="text-xl leading-relaxed text-gray-300 font-sans">{speaker.bio}</p>
                     
                     <div className="pt-6 border-t border-purple-500/20 flex justify-between items-center">
                       <span className="text-xs uppercase tracking-wider">FOLLOW</span>
