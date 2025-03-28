@@ -186,7 +186,7 @@ function App() {
           />
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
-        <h1 style="font-family: 'playfair display', serif; font-size: 90px; font-weight: 400; letter-spacing: normal; line-height: 108px; word-spacing: 0px; class=" text-5xl="" md:text-7xl="" font-bold="">World Innovation Gathering 2024</h1>
+        <h1 style="font-family: 'playfair display', serif; font-size: 90px; font-weight: 400; letter-spacing: normal; line-height: 108px; word-spacing: 0px;" class="text-5xl md:text-7xl font-bold">World Innovation Gathering 2024</h1>
           <p className="text-xl md:text-2xl mb-8">People, Ideas, Music, Food</p>
           <div className="flex justify-center space-x-8 mt-12">
             <div className="px-6 py-3 border border-white/30 rounded-md backdrop-blur-sm">
