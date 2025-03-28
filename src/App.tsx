@@ -71,7 +71,12 @@ function App() {
           if (entry.isIntersecting) {
             const imageContainer = entry.target.querySelector('.speaker-image-container');
             if (imageContainer) {
-              imageContainer.classList.add('translate-y-0', 'opacity-100', 'translate-x-0');
+              imageContainer.classList.add('opacity-100');
+              
+              setTimeout(() => {
+                imageContainer.classList.add('translate-x-0');
+              }, 100);
+              
               observer.unobserve(entry.target);
             }
           }
@@ -231,25 +236,30 @@ function App() {
       {/* Speakers Section */}
       <section id="speakers" className="py-20 bg-gradient-to-b from-blue-950 to-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-4 text-center">The Speakers</h2>
-          <p className="text-center mb-12">07 FEATURED INDUSTRY EXPERTS</p>
+          <h2 className="text-5xl font-bold mb-4 text-center text-purple-300">Speakers</h2>
+          <p className="text-center mb-16">07 FEATURED INDUSTRY EXPERTS</p>
           
-          <div className="space-y-24">
+          <div className="space-y-32">
             {speakers.map((speaker) => (
               <div 
                 key={speaker.id} 
                 className="speaker-container"
               >
-                <div className={`flex flex-col ${speaker.id % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center`}>
-                  {/* Speaker Image */}
+                <div className={`flex flex-col ${speaker.id % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-start`}>
+                  {/* Speaker Image - Smaller size */}
                   <div 
-                    className={`speaker-image-container w-full md:w-2/5 overflow-hidden rounded-lg transition-all duration-700 transform translate-y-10 opacity-0 ${
-                      speaker.id % 2 === 0 ? 'md:translate-x-10' : 'md:-translate-x-10'
+                    className={`speaker-image-container w-full md:w-1/3 overflow-hidden rounded-lg transition-all duration-700 transform opacity-0 ${
+                      speaker.id % 2 === 0 ? 'translate-x-20' : '-translate-x-20'
                     }`}
                   >
                     <div className="relative">
-                      <div className="absolute top-0 right-0 px-3 py-1 bg-blue-500/20 text-xs font-semibold z-10">
-                        {speaker.category}
+                      {/* Vertical category tag */}
+                      <div className="absolute top-0 right-0 h-full flex flex-col items-center justify-center z-10">
+                        <div className="bg-purple-500/20 px-2 py-6 writing-mode-vertical">
+                          <span className="transform rotate-90 inline-block text-xs font-semibold tracking-wider">
+                            {speaker.category}
+                          </span>
+                        </div>
                       </div>
                       <img 
                         src={speaker.image} 
@@ -259,20 +269,28 @@ function App() {
                     </div>
                   </div>
                   
-                  {/* Speaker Info */}
-                  <div className="w-full md:w-3/5 space-y-4">
-                    <div className="text-sm font-bold text-blue-400">0{speaker.id}</div>
-                    <h3 className="text-2xl font-bold">{speaker.name}</h3>
-                    <p className="text-blue-400 text-xl">{speaker.topic}</p>
-                    <p className="text-gray-300">{speaker.bio}</p>
+                  {/* Speaker Info - Larger fonts */}
+                  <div className="w-full md:w-2/3 space-y-6">
+                    {/* Vertical speaker number */}
+                    <div className="flex items-start">
+                      <div className="text-4xl font-bold text-purple-300 mr-4 opacity-70">
+                        {speaker.id < 10 ? `0${speaker.id}` : speaker.id}
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-4xl md:text-5xl font-bold">{speaker.name}</h3>
+                        <p className="text-xl md:text-2xl text-gray-400">{speaker.topic}</p>
+                      </div>
+                    </div>
                     
-                    <div className="pt-6 border-t border-blue-500/20 flex justify-between items-center">
+                    <p className="text-lg leading-relaxed text-gray-300">{speaker.bio}</p>
+                    
+                    <div className="pt-6 border-t border-purple-500/20 flex justify-between items-center">
                       <span className="text-xs uppercase tracking-wider">FOLLOW</span>
                       <div className="flex space-x-3">
-                        <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                        <a href="#" className="text-white hover:text-purple-400 transition-colors">
                           <Twitter size={18} />
                         </a>
-                        <a href="#" className="text-white hover:text-blue-400 transition-colors">
+                        <a href="#" className="text-white hover:text-purple-400 transition-colors">
                           <Linkedin size={18} />
                         </a>
                       </div>
