@@ -134,12 +134,15 @@ function App() {
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/img/RVRB-LOGO-hero.webp" 
-            alt="RVRB Logo" 
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/50 to-black/70"></div>
+          <div className="relative h-full w-full flex items-center justify-center">
+            <img 
+              src="/img/RVRB-LOGO-hero.webp" 
+              alt="RVRB Logo" 
+              className="max-h-full max-w-full object-contain opacity-40"
+              style={{ maxWidth: '80%', maxHeight: '80%' }}
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-black/50"></div>
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
