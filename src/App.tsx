@@ -184,7 +184,6 @@ function App() {
             alt="RVRB Logo" 
             className="max-w-[90%] max-h-[80%] object-contain opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-black/60"></div>
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
