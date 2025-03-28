@@ -239,7 +239,8 @@ function App() {
           <h2 className="text-5xl font-bold mb-4 text-center text-purple-300">Speakers</h2>
           <p className="text-center mb-16">07 FEATURED INDUSTRY EXPERTS</p>
           
-          <div className="space-y-32">
+          {/* Added 10% margin on both sides */}
+          <div className="space-y-32 mx-[10%]">
             {speakers.map((speaker) => (
               <div 
                 key={speaker.id} 
@@ -263,8 +264,8 @@ function App() {
                   
                   {/* Speaker Info - Larger fonts */}
                   <div className="w-full md:w-4/5 space-y-6 relative">
-                    {/* Vertical category and number - positioned on the side */}
-                    <div className={`absolute ${speaker.id % 2 === 0 ? 'right-0 mr-[-4rem]' : 'left-0 ml-[-4rem]'} top-0 h-full flex flex-col items-center`}>
+                    {/* Moved vertical category and number to the outer margin */}
+                    <div className={`absolute ${speaker.id % 2 === 0 ? 'right-0 mr-[-6rem]' : 'left-0 ml-[-6rem]'} top-0 h-full flex flex-col items-center`}>
                       <div className="h-full flex flex-col items-center justify-start space-y-4">
                         <div className="text-4xl font-bold text-purple-300 writing-mode-vertical">
                           {speaker.id < 10 ? `0${speaker.id}` : speaker.id}
