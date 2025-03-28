@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 /* Custom styles for mobile optimization */
 html {
   scroll-behavior: smooth;
@@ -59,3 +72,4 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #2563eb;
 }
+
