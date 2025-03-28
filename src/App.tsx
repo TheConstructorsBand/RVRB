@@ -134,8 +134,12 @@ function App() {
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-gradient-to-b from-blue-900/30 to-purple-900/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 bg-cover bg-center opacity-50 mix-blend-overlay"></div>
+          <img 
+            src="/img/RVRB-LOGO-hero.webp" 
+            alt="RVRB Logo" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/50 to-black/70"></div>
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
