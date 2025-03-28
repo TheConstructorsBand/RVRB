@@ -70,7 +70,7 @@ function App() {
       <header className="fixed w-full z-50 bg-black/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <a href="#" className="flex items-center">
-            <img src="/img/RVRB-LOGO PAGE_Dark.png" alt="RVRB Logo" className="h-10" />
+            <img src="/img/RVRB-LOGO-navbar.webp" alt="RVRB Logo" className="h-10" />
           </a>
           <nav className="hidden md:flex space-x-8">
             <a href="#home" className="hover:text-blue-400 transition-colors">Home</a>
@@ -134,15 +134,12 @@ function App() {
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="relative h-full w-full flex items-center justify-center">
-            <img 
-              src="/img/RVRB-LOGO-hero.webp" 
-              alt="RVRB Logo" 
-              className="max-h-full max-w-full object-contain opacity-40"
-              style={{ maxWidth: '80%', maxHeight: '80%' }}
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-black/50"></div>
+          <img 
+            src="/img/RVRB-LOGO-hero.webp" 
+            alt="RVRB Logo" 
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black/40"></div>
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
