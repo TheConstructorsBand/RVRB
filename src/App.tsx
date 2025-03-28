@@ -85,11 +85,27 @@ function App() {
       { threshold: 0.1 }
     );
 
-    const elements = document.querySelectorAll('.speaker-container');
-    elements.forEach((el) => observer.observe(el));
+    const speakerElements = document.querySelectorAll('.speaker-container');
+    speakerElements.forEach((el) => observer.observe(el));
+    
+    const galleryObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-12');
+            galleryObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach((el) => galleryObserver.observe(el));
 
     return () => {
-      elements.forEach((el) => observer.unobserve(el));
+      speakerElements.forEach((el) => observer.unobserve(el));
+      galleryItems.forEach((el) => galleryObserver.unobserve(el));
     };
   }, []);
 
@@ -330,6 +346,37 @@ function App() {
                 and recorded music to support our cause of curing cancer.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Event Gallery Section */}
+      <section id="gallery" className="py-20 bg-gradient-to-b from-blue-950 to-black">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-8 text-center">Event Gallery</h2>
+          <p className="text-center mb-12 text-gray-300">Highlights from our previous gatherings</p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Gallery images with animation */}
+            {[1, 2, 3, 4, 5, 6].map((num) => (
+              <div 
+                key={`event-${num}`} 
+                className="gallery-item overflow-hidden rounded-lg transition-all duration-700 transform opacity-0 translate-y-12 h-64 relative group"
+              >
+                <img 
+                  src={`/img/event/optimized/event${num}.webp`} 
+                  alt={`Event photo ${num}`} 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="p-4">
+                    <h3 className="text-xl font-bold">RVRB {2023 - num + 1}</h3>
+                    <p className="text-sm text-gray-300">Innovation Gathering</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
