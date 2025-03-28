@@ -188,11 +188,11 @@ function App() {
         <div className="container mx-auto px-4 z-10 text-center">
         <h1 style={{fontFamily: "'playfair display', serif",fontSize: "90px",fontWeight: 400, letterSpacing: "normal",lineHeight: "108px",wordSpacing: "0px"}} className="text-5xl md:text-7xl font-bold transition-opacity duration-1000 ease-in fade-in"> World Innovation Gathering 2024</h1>
         <div className="flex items-center slide-in-from-left transition-transform duration-1000">
-          <div className="w-[100px] h-[2px] bg-purple-500 mr-4"></div>
-           <p className="text-xl md:text-2xl mb-8">
+          <div className="w-[150px] h-[1px] bg-purple-500 mr-4 self-center"></div>
+          <p className="text-xl md:text-2xl">
            People, Ideas, Music, Food
           </p>
-          </div>
+        </div>
           <div className="flex justify-center space-x-8 mt-12">
             <div className="px-6 py-3 border border-white/30 rounded-md backdrop-blur-sm">
               Oct 10th
