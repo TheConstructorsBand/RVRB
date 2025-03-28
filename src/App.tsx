@@ -69,14 +69,18 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('group-hover:translate-y-0', 'group-hover:opacity-100', 'group-hover:translate-x-0');
+            const imageContainer = entry.target.querySelector('.speaker-image-container');
+            if (imageContainer) {
+              imageContainer.classList.add('translate-y-0', 'opacity-100', 'translate-x-0');
+              observer.unobserve(entry.target);
+            }
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const elements = document.querySelectorAll('.group');
+    const elements = document.querySelectorAll('.speaker-container');
     elements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -152,14 +156,14 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section id="home" className="relative h-screen flex items-center justify-center">
+        <div className="absolute inset-0 z-0 flex items-center justify-center bg-black">
           <img 
             src="/img/RVRB-LOGO-hero.webp" 
             alt="RVRB Logo" 
-            className="w-full h-full object-cover opacity-60"
+            className="max-w-[90%] max-h-[80%] object-contain opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-black/60"></div>
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -234,13 +238,13 @@ function App() {
             {speakers.map((speaker) => (
               <div 
                 key={speaker.id} 
-                className="group"
+                className="speaker-container"
               >
                 <div className={`flex flex-col ${speaker.id % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center`}>
                   {/* Speaker Image */}
                   <div 
-                    className={`w-full md:w-2/5 overflow-hidden rounded-lg transition-all duration-700 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 ${
-                      speaker.id % 2 === 0 ? 'md:translate-x-10 md:group-hover:translate-x-0' : 'md:-translate-x-10 md:group-hover:translate-x-0'
+                    className={`speaker-image-container w-full md:w-2/5 overflow-hidden rounded-lg transition-all duration-700 transform translate-y-10 opacity-0 ${
+                      speaker.id % 2 === 0 ? 'md:translate-x-10' : 'md:-translate-x-10'
                     }`}
                   >
                     <div className="relative">
